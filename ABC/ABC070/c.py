@@ -6,7 +6,10 @@ def gcd(a, b):
 		a, b = b, a%b
 	return a
 
-ans=T[0]
-for i in range(1, N):
-	ans=ans*T[i]//gcd(ans, T[i])
+answer = 1
+for _ in range(N):
+  x = int(input())
+  answer *= x//gcd(answer, x)
+
+
 print(ans)
