@@ -1,19 +1,7 @@
-N, M =map(int, input().split())
-H=list(map(int, input().split()))
+N=int(input())
+X=list(map(int, input().split()))
+import numpy as np
+p=np.floor(np.mean(X))
+ans=min(np.sum([(x-p)**2 for x in X]), np.sum([(x-(p+1))**2 for x in X]))
 
-A=[True]*N
-
-for i in range(M):
-	a, b = map(int, input().split())
-
-	if H[a-1]>H[b-1]:
-		A[b-1]=False
-	elif H[a-1]==H[b-1]:
-		A[a-1]=False
-		A[b-1]=False
-	elif H[a-1]<H[b-1]:
-		A[a-1]=False
-
-print(sum(A))
-
-
+print(int(ans))
