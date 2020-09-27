@@ -38,23 +38,32 @@ class Uf:
 
 N, M, K = map(int, input().split())
 uf=Uf(N)
-res=[0]*N
+
+fre=[[] for _ in range(N)]
+bro=[[] for _ in range(N)]
+
 for _ in range(M):
 	a, b = map(int, input().split())
 	a-=1
 	b-=1
-	res[a]-=1
-	res[b]-=1
 	uf.unite(a,b)
+	fre[a].append(b)
+	fre[b].append(a)
 
 for _ in range(K):
-	c, d =map(int, input().split())
+	c, d = map(int, input().split())
 	c-=1
 	d-=1
-	if uf.same(c,d):
-		res[c]-=1
-		res[d]-=1
+	bro[c].append(d)
+	bro[d].append(c)
 
+ans=[]
+res=[-1]*N
 for i in range(N):
-	res[i]+=uf.count(i)-1
-print(*res)
+	temp=uf.count(i)-1-len(fre[i])
+	for u in bro[i]:
+		if uf.same(i, u):
+			temp-=1
+	ans.append(temp)
+print(*ans)
+
