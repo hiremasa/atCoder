@@ -89,6 +89,5 @@ for i in range(N):
 	for j in range(N):
 		ans[dd[j]]+=1
 print(*[i//2 for i in ans[1:]], sep="\n")
-#print(Counter((d.dijkstra(D, 1))))
-#print(d.dijkstra(D, 2))
+
 
