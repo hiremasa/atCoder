@@ -32,3 +32,6 @@ for i in range(len(S)+1):
     #print(i, left_count[i - 1], right_count[i], m)
     s += m
 print(s)
+
+
+
