@@ -1,7 +1,11 @@
 H, W = map(int, input().split())
 S=[input() for _ in range(H)]
 
-
+"""
+import itertools
+for dx,dy in itertools.product([-1,0,1],repeat=2):
+とするほうがベター
+"""
 dxdy = [(1,0), (1,1), (0,1), (-1,1), (-1,0), (-1,-1), (0, -1), (1,-1)]
 ans = list([0]*W for _ in range(H))
 
