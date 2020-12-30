@@ -1,3 +1,17 @@
+N=int(input())
+A=list(map(int, input().split()))
+
+ans = [0]*100003
+for a in A:
+    ans[a+1]+=1
+    ans[a]+=1
+    ans[a+2]+=1
+print(max(ans))
+
+
+
+#-------------------------
+
 import numpy as np
 # 前後1まで回収できる
 N = int(input())
