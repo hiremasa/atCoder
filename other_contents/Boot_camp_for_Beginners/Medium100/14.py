@@ -1,25 +1,19 @@
-# 孤立点
+H, W = map(int, input().split())
+S = [list(input()) for _ in range(H)]
 
-import numpy as np
-import sys
-buf = sys.stdin.buffer
+dx_dy = [[1, 0], [0, 1], [-1, 0], [0, -1]]
 
-H,W = map(int,buf.readline().split())
-S = np.frombuffer(buf.read(H*(W+1)), dtype='S1').reshape((H,W+1))
-S = S[:,:-1]
-
-black = (S == b'#')
-black_nbd = np.zeros((H,W), dtype=np.bool)
-
-# 左
-black_nbd[1:,:] |= black[:-1,:]
-# 右
-black_nbd[:-1,:] |= black[1:,:]
-# 下
-black_nbd[:,1:] |= black[:,:-1]
-# 上
-black_nbd[:,:-1] |= black[:,1:]
-
-impossible = (black & ~black_nbd).any()
-answer = 'Yes' if not impossible else 'No'
-print(answer)
+for x in range(H):
+    for y in range(W):
+        if S[x][y]=="#":
+            flag = False
+            for dx, dy in dx_dy:
+                x_p = x + dx
+                y_p = y + dy
+                
+                if 0 <= x_p < H and 0 <=y_p < W:
+                    if S[x_p][y_p] == "#":
+                        flag = True
+            if not flag:
+                exit(print("No"))
+print("Yes")
