@@ -10,7 +10,6 @@ A = np.array(read().split(), np.int64)
 counter = np.bincount(A)
 
 total = (counter * (counter - 1)).sum() // 2
-answer = (total - (counter - 1))[A]
+answer = (total - (counter - 1))[A] #抜かすものを含んだカウントを消す
 
 print('\n'.join(answer.astype(str)))
-
