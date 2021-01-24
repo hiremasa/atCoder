@@ -7,4 +7,4 @@ for i in range(len(t)):
     if S[-N:] == t:
         ans = min(ans, len(S))
 
-print(len(ans))
+print(ans)
