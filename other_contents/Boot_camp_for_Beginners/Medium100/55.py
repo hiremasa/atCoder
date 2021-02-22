@@ -1,13 +1,16 @@
 N, M = map(int, input().split())
+AB = [[int(x) for x in input().split()] for _ in range(M)]
 
-AB = []
-for _ in range(M):
-    a, b = map(int, input().split())
-    AB.append([a, b])
+# 1からN
+se1 = set()
+se2 = set()
 
-ans = "IMPOSSIBLE"
-for i in range(2, N+1):
-    if [1, i] in AB and [i, N] in AB:
-        ans = "POSSIBLE"
+for a, b in AB:
+    if a == 1:
+        se1.add(b)
+    if b == N:
+        se2.add(a)
 
-print(ans)
+se = se1 & se2
+answer = 'POSSIBLE' if se else 'IMPOSSIBLE'
+print(answer)
