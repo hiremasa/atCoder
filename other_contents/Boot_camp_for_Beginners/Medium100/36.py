@@ -4,7 +4,7 @@ A = list(map(int, input().split()))
 from math import gcd
 
 A = [abs(a - X) for a in A]
-ans = A[0]
+ans = A[]
 for a in A:
     ans = gcd(ans, a)
 print(ans)
