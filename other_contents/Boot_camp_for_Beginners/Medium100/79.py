@@ -1,17 +1,10 @@
 N,M = map(int,input().split())
-MOD = 10**9 + 7
-
-fact = [1]
-for i in range(1, N+M+1):
-  fact.append((fact[-1] * i) % MOD)
-
-x = fact[N] * fact[M]
-
+mod = 10**9 + 7
+import math
 if N == M:
-  answer = 2 * x % MOD
-elif abs(N-M) == 1:
-  answer = x % MOD
+    ans = (math.factorial(N%mod) * math.factorial(M%mod) * 2) % mod
+elif abs(N - M) == 1:
+    ans =  (math.factorial(N%mod) * math.factorial(M%mod)) % mod
 else:
-  answer = 0
-
-print(answer)
+    ans = 0
+print(ans)
