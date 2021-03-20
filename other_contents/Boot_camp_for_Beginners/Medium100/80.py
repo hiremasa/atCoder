@@ -9,5 +9,5 @@ for s in S:
 ans = 1
 for v in dd.values():
     ans *= (v + 1)
-    ans % mod
+    ans %= mod
 print(ans- 1)
