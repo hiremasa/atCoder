@@ -24,10 +24,12 @@ def janken(t, te):
 
 #groupごとに最大化
 def max_group(k):
-    par_T = T[k:N:K]
+    par_T = T[k:-1:K]
+
     total = 0
 
     for first_te in Te : #最初の手を選ぶ
+
         temp = janken(par_T[0], first_te)
         prev_te = first_te
         for i in range(1, len(par_T)):
@@ -49,12 +51,14 @@ def max_group(k):
     return total
 
 ans = 0
-for k in range(1, K+1):
+for k in range(K):
+    print(T[k:N+1:K])
     ans += max_group(k)
 print(ans)
 
 
 #=========================AC
+"""
 N, K = map(int, input().split())
 R, S, P = map(int, input().split())
 T = list(input())
@@ -83,3 +87,4 @@ for i, t in enumerate(T):
     commands[i] = command
 
 print(ans)
+"""
