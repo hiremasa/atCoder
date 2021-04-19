@@ -15,4 +15,9 @@ def prime_decomposition(n): #素因数分解
         table.append(int(n))
     return table
 
-print(len(set(prime_decomposition(g))) + 1)
+#print(len(set(prime_decomposition(g))) + 1)
+
+
+A_decomp = prime_decomposition(A)
+B_decomp = prime_decomposition(B)
+print(len(set(A_decomp) &  set(B_decomp)) + 1)
