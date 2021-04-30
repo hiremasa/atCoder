@@ -25,8 +25,15 @@ print(ans
 #================================
 
 import bisect
+
 D = int(input())
 N = int(input())
 M = int(input())
 ds = [0]+ sorted([int(input()) for _ in range(N - 1)]) + [D]#: 店舗の位置
 ks = sorted([int(input()) for _ in range(M)]) #: 宅配先の位置
+
+ans = 0
+for k in ks:
+    ok = bisect.bisect_left(ds, k)
+    ans = min(k - ds[ok], ds[ok + 1] - k)
+print(ans)

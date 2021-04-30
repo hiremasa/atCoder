@@ -11,7 +11,7 @@ for i in range(1, N - 1):
             dp[i][j] += dp[i - 1][j - a]
         if j + a <= 20:
             dp[i][j] += dp[i - 1][j + a]
-print(*dp)
+#print(*dp)
 print(dp[N - 2][A[N - 1]])
 
 """
