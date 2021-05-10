@@ -32,3 +32,4 @@ for i in range(1, N + 1):
 
 for i in range(1, N + 1):
     print(i, go_time[i], back_time[i])
+

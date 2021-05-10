@@ -77,15 +77,15 @@ def main():
     for i in range(1, N):
         for j in range(3):
             for a, b in AB:
-                if a == i + 1:
-                    if b - 1 == j:
+                if a == i + 1: #指定がある
+                    if b - 1 == j: #指定のcol
                         if dp[i][j] == 0:
                             continue
                         if dp[i - 1][j] == 0:
                             dp[i + 1][j] += dp[i][j]
                         else:
                             dp[i + 1][j] += max(0, sum(dp[i - 1]) - dp[i - 1][j])
-                    else:
+                    else: #指定があるけど、指定のcolじゃない
                         dp[i + 1][b - 1] += dp[i][j]
                     break
             else:

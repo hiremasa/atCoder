@@ -27,7 +27,7 @@ from itertools import combinations, combinations_with_replacement, permutations
 from bisect import bisect_left
 
 
-def main():
+def main()
     n = int(input())
     nums = list(map(int, input().split()))
     dp = [[0] * (21) for i in range(n)]

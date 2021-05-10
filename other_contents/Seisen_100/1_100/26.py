@@ -1,3 +1,4 @@
+#=================スタック==================
 from collections import deque
 N, Q = map(int, input().split())
 
@@ -31,3 +32,32 @@ while stacked_v:
             stacked_v.append(next_v)
 
 print(*count)
+
+
+#====================再帰======================
+from sys import setrecursionlimit
+setrecursionlimit(10**7)
+
+N, Q = map(int, input().split())
+G = [[] for _ in range(N)]
+for i in range(N - 1):
+  a, b = map(int, input().split())
+  a -= 1
+  b -= 1
+  G[a].append(b)
+  G[b].append(a)
+
+count = [0] * N
+for _ in range(Q):
+  p, x = map(int, input().split())
+  count[p - 1] += x
+
+def DFS(cur_node, prev_node):
+  for next_node in G[cur_node]:
+    if next_node == prev_node: continue
+    count[next_node] += count[cur_node]
+    DFS(next_node, cur_node)
+      
+DFS(0, -1)
+print(*count)
+  
