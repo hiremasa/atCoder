@@ -1,3 +1,4 @@
+"""
 import heapq
 V, E = map(int, input().split()) # 頂点、辺
 adj = [ [] for v in range(V)] # 隣接リスト
@@ -23,3 +24,31 @@ while(pq):
         if visited[s]==0: # 未訪問なら探索候補としてpqに追加
             heapq.heappush(pq, (w, s))
 print (ans)
+"""
+
+import heapq
+V, E = map(int, input().split())
+adj = [[] for _ in range(V)]
+
+for e in range(E):
+    s, t, w = map(int, input().split())
+    adj[s].append([t, w])
+    adj[t].append([s, w])
+ans = 0
+
+visited = [0] * V
+pq = []
+for t, w in adj[0]:
+    heapq.heappush(pq, (w, t))
+visited[0] = 1
+
+while pq:
+    w, t = heapq.heappop(pq)
+    if visited[t] == 1:
+        continue
+    visited[t] = 1
+    ans += w
+    for e, w in adj[t]:
+        if visited[e] == 0:
+            heapq.heappush(pq, (w, e))
+print(ans)
