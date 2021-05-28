@@ -1,3 +1,3 @@
-# atCoder
-atCoderの問題を解いていくリポジトリ
+# AtCzoder
+AtCoderの問題を解いていくリポジトリ
 
