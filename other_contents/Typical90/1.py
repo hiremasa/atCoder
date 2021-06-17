@@ -1,17 +1,18 @@
 N, L = map(int, input().split())
 K = int(input())
-A = list(map(int, input().split()))
+A = list(map(int, input().split())) #len == N + 1
 
 def is_ok(d):
     last = 0
-    for i in range(1, K):
-        crt = last + 1
-        while crt < N and A[crt] - A[last] < d:
-            crt += 1
-        if crt == N:
-            return False
-        last = crt
-    return True
+    cnt_cut = 0
+    for i in range(N):
+        if A[i] - last >= d and L - A[i] >= d:
+            cnt_cut += 1
+            last = A[i]
+        if cnt_cut == K:
+            return True
+    return False
+
 
 def meguru_bisect(ng, ok):
     while abs(ng-ok)>1:
@@ -22,4 +23,4 @@ def meguru_bisect(ng, ok):
             ng=mid
     return ok
 
-print(meguru_bisect(100000+1, 0))
+print(meguru_bisect(10**9+1, 0))
