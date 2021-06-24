@@ -49,6 +49,6 @@ while pq:
     visited[t] = 1
     ans += w
     for e, w in adj[t]:
-        if visited[e] == 0:
+        if visited[e] == 0: #<= これなくてもOK
             heapq.heappush(pq, (w, e))
 print(ans)
