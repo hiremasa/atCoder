@@ -1,5 +1,5 @@
 import heapq
-V, E = map(int, input().split())
+V, E, r = map(int, input().split())
 
 G = [[] for _ in range(V)]
 
@@ -11,22 +11,34 @@ for _ in range(E):
 
 #init
 pq = []
-ans = 0
-visited = [0] * V
-for w, node in G[0]:
-    heapq.heappush(pq, [w, node])
-visited[0] = 1
+Distance = [float("inf")] * V
+heapq.heappush(pq, [0, r])
+Distance[r] = 0
 
 while pq:
     w, node = heapq.heappop(pq)
-    if visited[node] == 1:
+    Distance[node] = w
+    if Distance[node] < w:
         continue
-    visited[node] = 1
-    ans += w
     for next_w, next_node in G[node]:
-        if visited[next_node]:
-            continue
-        heapq.heappush(pq, [next_w, next_node])
+        if Distance[next_node] > Distance[node] + next_w:
+            heapq.heappush(pq, [Distance[node] + next_w, next_node])
+print(*Distance)
 
 
-print(ans)
+
+
+
+# while pq:
+#     w, node = heapq.heappop(pq)
+#     if visited[node] == 1:
+#         continue
+#     visited[node] = 1
+#     ans += w
+#     for next_w, next_node in G[node]:
+#         if visited[next_node]:
+#             continue
+#         heapq.heappush(pq, [next_w, next_node])
+
+
+# print(ans)
