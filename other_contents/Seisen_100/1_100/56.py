@@ -14,8 +14,8 @@ def dijkstra(s):
     #更新
     while nodelist:
         cost, node = heapq.heappop(nodelist)
-        if D[node] < cost:
-            continue
+        # if D[node] < cost:
+        #     continue
         for next_node, next_cost in G[node]:
             if D[node] + next_cost < D[next_node]:
                 D[next_node] = D[node] + next_cost
@@ -25,4 +25,3 @@ result = dijkstra(r)
 
 for i in range(V):
     print(result[i] if result[i] < float("inf") else "INF")
-
