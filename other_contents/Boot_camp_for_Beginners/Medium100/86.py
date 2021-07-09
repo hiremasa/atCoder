@@ -19,7 +19,7 @@ elif len(a_set) == 2:
     else:
         print("No")
 
-elif len(a_set) == 3:
+elif len(a_set) == 3:　
     a_1, a_2, a_3 = a_set
     if a_list.count(a_1) == a_list.count(a_2) and a_list.count(a_2) == a_list.count(a_3):
         if a_1 ^ a_2 == a_3:

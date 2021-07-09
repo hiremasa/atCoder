@@ -52,3 +52,30 @@ while pq:
         if visited[e] == 0: #<= これなくてもOK
             heapq.heappush(pq, (w, e))
 print(ans)
+
+
+
+
+#===============================これでもおｋ
+import heapq
+V, E = map(int, input().split())
+adj = [[] for _ in range(V)]
+
+for e in range(E):
+    s, t, w = map(int, input().split())
+    adj[s].append([t, w])
+    adj[t].append([s, w])
+ans = 0
+
+visited = [0] * V
+pq = [(0, 0)]
+
+while pq:
+    w, t = heapq.heappop(pq)
+    if visited[t] == 1:
+        continue
+    visited[t] = 1
+    ans += w
+    for e, w in adj[t]:
+            heapq.heappush(pq, (w, e))
+print(ans)

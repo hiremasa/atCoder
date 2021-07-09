@@ -1,7 +1,9 @@
 x = int(input())
-f = lambda x: max(set([range(1, 7)]) - set([x, 6- x]))
+
+def f(x):
+    return max(set([1, 2, 3, 4, 5, 6]) - set([x, 6 - x]))
 ans = total = 0
-now = 6
+now = 4
 while total < x:
     ans += 1
     next_ = f(now)

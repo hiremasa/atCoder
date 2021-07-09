@@ -8,34 +8,10 @@ if x <= half:
     print(np.rad2deg(theta))
 else:
 
-
-import sys
-read = sys.stdin.buffer.read
-readline = sys.stdin.buffer.readline
-readlines = sys.stdin.buffer.readlines
-
-from math import atan,tan,pi
-
-a,b,x = map(int,read().split())
-
-def max_volume(theta):
-    # 弧度法にする
-    theta = theta/180*pi
-    if theta<atan(b/a):
-        # 半分より上のパターン
-        area = a*b-a*a*tan(theta)/2
-    else:
-        area = b*(b/tan(theta))/2
-    return area*a
-
-left = 0 # おさまっている
-right = 90 # あふれている
-while right - left > 1e-7:
-    mid = (left+right)/2
-    if max_volume(mid) <= x:
-        right = mid
-    else:
-        left = mid
-
-answer = (left+right)/2
-print(answer)
+import math
+a,b,x = map(int,input().split())
+if x >= a*a*b/2:
+  ans = math.degrees(math.atan(2*b/a-2*x/a**3))
+else:
+  ans = math.degrees(math.atan(a*b**2/(2*x)))
+print(ans)

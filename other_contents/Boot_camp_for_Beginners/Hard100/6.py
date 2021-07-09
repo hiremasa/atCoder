@@ -5,4 +5,4 @@ heapq.heapify(A)
 for _ in range(M):
     temp_min = heapq.heappop(A)
     heapq.heappush(A, - (-temp_min // 2))
-print(- sum(A))
+print(-sum(A))
